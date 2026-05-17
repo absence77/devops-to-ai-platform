@@ -168,4 +168,4 @@ MIT License — see [LICENSE](LICENSE) for details.
 ---
 
 *Built in Tashkent, Uzbekistan · Ahmad Gayibov · IT Architect & AI Platform Engineer*  
-*[medium.com/@ahmadgayibov](https://medium.com/@ahmadgayibov) · [github.com/absence77](https://github.com/absence77)*
+[medium.com/@ahmadgayibov](https://medium.com/@ahmadgayibov) · [t.me/devops_to_ai](https://t.me/devops_to_ai)
