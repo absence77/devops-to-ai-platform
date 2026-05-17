@@ -5,3 +5,7 @@ __pycache__/
 venv/
 *.sqlite3
 *.log
+*.json
+!requirements.txt
+.DS_Store
+*.bak
