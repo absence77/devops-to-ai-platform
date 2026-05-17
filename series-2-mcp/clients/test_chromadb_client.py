@@ -18,12 +18,12 @@ async def main():
             tools = await session.list_tools()
             print(f"Tools: {[t.name for t in tools.tools]}")
 
-            # Тест 1: статистика
+            # Test 1: database stats
             print("\n--- TEST 1: get_incident_stats ---")
             result = await session.call_tool("get_incident_stats", {})
             print(result.content[0].text)
 
-            # Тест 2: поиск по памяти
+            # Test 2: semantic search
             print("\n--- TEST 2: search CrashLoopBackOff ---")
             result = await session.call_tool("search_incidents", {
                 "query": "CrashLoopBackOff pod crash",
@@ -31,7 +31,7 @@ async def main():
             })
             print(result.content[0].text)
 
-            # Тест 3: последние инциденты
+            # Test 3: recent incidents
             print("\n--- TEST 3: recent incidents ---")
             result = await session.call_tool("get_recent_incidents", {"n": 3})
             print(result.content[0].text)

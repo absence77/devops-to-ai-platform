@@ -94,7 +94,7 @@ async def safe_rollout_restart(deployment: str, namespace: str = "production"):
     print(f"Target: {deployment} / {namespace}")
     print(f"{'='*60}")
 
-    # Шаг 1: Judge оценивает
+    # Step 1: Judge evaluates the action
     verdict = evaluate_with_judge("rollout_restart", deployment, namespace)
 
     if verdict["verdict"] == "REJECT":
@@ -110,7 +110,7 @@ async def safe_rollout_restart(deployment: str, namespace: str = "production"):
             print("   Cancelled by human.")
             return False
 
-    # Шаг 2: Judge APPROVED → выполняем через MCP
+    # Step 2: Judge approved — execute via MCP
     print(f"\n✅ JUDGE APPROVED — executing via MCP...")
 
     server_params = StdioServerParameters(
@@ -139,7 +139,7 @@ async def main():
     print("TEST 2: Dangerous — fake production-critical-db")
     print("=" * 60)
 
-    # Симулируем опасный запрос
+    # Simulate a dangerous request
     verdict = evaluate_with_judge(
         "rollout_restart",
         "production-critical-db",

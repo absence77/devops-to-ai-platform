@@ -20,20 +20,20 @@ async def main():
     async with stdio_client(server_params) as (read, write):
         async with ClientSession(read, write) as session:
 
-            # Инициализация
+            # Initialize session
             await session.initialize()
             print("Connected to MCP server!")
 
-            # Список инструментов
+            # List available tools
             tools = await session.list_tools()
             print(f"\nAvailable tools: {[t.name for t in tools.tools]}")
 
-            # Тест 1: get_nodes
+            # Test 1: get_nodes
             print("\n--- TEST 1: get_nodes ---")
             result = await session.call_tool("get_nodes", {})
             print(result.content[0].text)
 
-            # Тест 2: get_pods
+            # Test 2: get_pods
             print("\n--- TEST 2: get_pods (production) ---")
             result = await session.call_tool("get_pods", {"namespace": "production"})
             print(result.content[0].text)
