@@ -3,9 +3,9 @@ MCP Server — ChromaDB RAG Memory
 From DevOps to AI Platform | Series 2 | Part 2
 
 Tools:
-- search_incidents(query, n)     — semantic search по инцидентам
-- get_recent_incidents(n)        — последние N инцидентов
-- get_incident_stats()           — статистика по памяти
+- search_incidents(query, n)     — semantic search across incidents
+- get_recent_incidents(n)        — last N incidents chronologically
+- get_incident_stats()           — memory database statistics
 """
 
 import json

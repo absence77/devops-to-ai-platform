@@ -1,7 +1,7 @@
 """
 Claude MCP Agent — Kubernetes Assistant
-Отвечает на вопросы на русском и английском
-используя реальные данные кластера через MCP
+Answers questions in Russian and English
+using real cluster data via MCP
 """
 
 import asyncio
@@ -39,7 +39,7 @@ async def ask_cluster(question: str):
             client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
             messages = [{"role": "user", "content": question}]
 
-            print(f"\nВопрос: {question}")
+            print(f"\nQuestion: {question}")
             print("-" * 60)
 
             while True:
@@ -72,9 +72,9 @@ async def ask_cluster(question: str):
 
 async def main():
     questions = [
-        "Покажи состояние всех нод и подов в production",
+        "Show me the status of all nodes and pods in production",
         "Are there any recent warning events in production namespace?",
-        "Есть ли поды с ошибками или рестартами?",
+        "Are there any pods with errors or restarts?",
     ]
 
     for q in questions:

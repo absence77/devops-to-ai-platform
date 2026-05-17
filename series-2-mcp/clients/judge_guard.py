@@ -2,10 +2,10 @@
 Judge Guard — safety layer for MCP write operations
 From DevOps to AI Platform | Series 2 | Part 2
 
-Встаёт между MCP клиентом и опасными инструментами.
-Перед любым rollout_restart — Judge оценивает риск.
-Score < 70 → команда заблокирована.
-Score >= 70 → выполняется через MCP.
+Sits between MCP client and dangerous write operations.
+Before any rollout_restart — Judge evaluates the risk.
+Score < 70 → command is blocked.
+Score >= 70 → executes via MCP.
 """
 
 import asyncio
@@ -42,7 +42,7 @@ Respond ONLY with valid JSON:
 
 
 def evaluate_with_judge(action: str, target: str, namespace: str) -> dict:
-    """Judge оценивает действие перед выполнением через MCP."""
+    """Judge evaluates the action before MCP execution."""
     client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
     plan = f"""
@@ -86,8 +86,8 @@ COMMAND: kubectl {action.replace('_', ' ')} {target} -n {namespace}
 
 async def safe_rollout_restart(deployment: str, namespace: str = "production"):
     """
-    Безопасный rollout restart через MCP + Judge.
-    Judge проверяет → если APPROVE → MCP выполняет.
+    Safe rollout restart via MCP + Judge.
+    Judge evaluates → if APPROVE → MCP executes.
     """
     print(f"\n{'='*60}")
     print(f"SAFE ROLLOUT RESTART")

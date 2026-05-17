@@ -3,12 +3,12 @@ MCP Server — kubectl tools for Kubernetes
 From DevOps to AI Platform | Series 2 | Part 1
 
 Tools:
-- get_pods(namespace)              — список подов
-- get_nodes()                      — состояние нод
-- describe_pod(pod, ns)            — детали пода
-- get_logs(pod, ns, lines)         — логи пода
-- get_events(namespace)            — события namespace
-- rollout_restart(deployment, ns)  — рестарт деплоймента
+- get_pods(namespace)              — list pods in namespace
+- get_nodes()                      — cluster node status
+- describe_pod(pod, ns)            — full pod details
+- get_logs(pod, ns, lines)         — pod logs
+- get_events(namespace)            — namespace events sorted by time
+- rollout_restart(deployment, ns)  — restart a deployment
 """
 
 import subprocess

@@ -1,6 +1,6 @@
 """
-MCP Client — тестируем kubectl MCP сервер
-Подключается к серверу и вызывает все 3 инструмента
+MCP Client — test kubectl MCP server
+Connects to server and calls all 3 tools
 """
 
 import asyncio
