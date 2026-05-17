@@ -13,8 +13,7 @@
 
 ## What This Is
 
-I am an IT Architect with 15 years of experience in Linux, DevOps, and Kubernetes.  
-Based in Tashkent, Uzbekistan.
+I am an IT Architect with 15 years of experience in Linux, DevOps, and Kubernetes.
 
 This repository documents my journey of transforming a traditional DevOps infrastructure  
 into an AI-native platform — step by step, on a real production cluster, with real costs.
