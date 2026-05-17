@@ -79,10 +79,10 @@ The protocol war is over — MCP won.
 Internet
     |
     v
-JumpServer (65.109.160.208) ──── kubectl ────> master-1 (37.27.41.55)
+JumpServer ──── kubectl ────> master-1
                                                     |
-AI Server (204.168.252.69)                    worker-1 (37.27.86.7)
-├── MCP servers (series-2-mcp/)               worker-2 (204.168.150.77)
+AI Server                                     worker-1
+├── MCP servers (series-2-mcp/)               worker-2
 ├── AI agents (series-1-foundations/)
 ├── webhook_v2.py (FastAPI :8080)         namespace: production
 ├── ChromaDB (RAG memory)                 ├── Prometheus
@@ -90,7 +90,7 @@ AI Server (204.168.252.69)                    worker-1 (37.27.86.7)
                                           └── AlertManager
 ```
 
-**Hetzner Cloud · Helsinki eu-central · Kubernetes v1.30.14 · Calico CNI · $74.95/month**
+**Hetzner Cloud · Helsinki eu-central · Kubernetes v1.30.14 · Calico CNI **
 
 ---
 

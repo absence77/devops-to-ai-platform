@@ -2,13 +2,14 @@
 Test ChromaDB MCP Server
 """
 import asyncio
+import pathlib
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
 async def main():
     server_params = StdioServerParameters(
         command="python3",
-        args=["/root/devops-to-ai-platform/series-2-mcp/servers/chromadb_server.py"]
+        args=[str(pathlib.Path(__file__).parent.parent / "servers" / "chromadb_server.py")]
     )
 
     async with stdio_client(server_params) as (read, write):

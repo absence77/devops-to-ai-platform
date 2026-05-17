@@ -9,18 +9,20 @@ Tools:
 """
 
 import json
+import os
 import sys
 from mcp.server import Server
 from mcp.server.stdio import stdio_server
 from mcp import types
 
-sys.path.insert(0, '/root/rag')
+RAG_PATH = os.getenv('RAG_PATH', '/root/rag')
+sys.path.insert(0, RAG_PATH)
 
 server = Server("chromadb-server")
 
 def get_chroma_client():
     import chromadb
-    return chromadb.PersistentClient(path="/root/rag/incident_db")
+    return chromadb.PersistentClient(path=os.path.join(RAG_PATH, "incident_db"))
 
 @server.list_tools()
 async def list_tools() -> list[types.Tool]:
@@ -127,7 +129,7 @@ async def call_tool(name: str, arguments: dict) -> list[types.TextContent]:
             count = collection.count()
             output = f"ChromaDB Incident Memory Stats:\n"
             output += f"Total incidents: {count}\n"
-            output += f"Database path: /root/rag/incident_db\n"
+            output += ff"Database path: {RAG_PATH}/incident_db\n"
             output += f"Collection: incidents\n"
             return [types.TextContent(type="text", text=output)]
         except Exception as e:

@@ -5,6 +5,7 @@ using real cluster data via MCP
 """
 
 import asyncio
+import pathlib
 import os
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
@@ -19,7 +20,7 @@ Be concise and highlight any problems you find."""
 async def ask_cluster(question: str):
     server_params = StdioServerParameters(
         command="python3",
-        args=["/root/devops-to-ai-platform/series-2-mcp/servers/kubectl_server.py"]
+        args=[str(pathlib.Path(__file__).parent.parent / "servers" / "kubectl_server.py")]
     )
 
     async with stdio_client(server_params) as (read, write):
